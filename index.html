@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Breakscenter | Watch Live</title>
+<meta name="description" content="Breakscenter — live sports card breaks 7 days a week. Watch us live on eBay Live and Fanatics Live.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Breakscenter | Watch Live">
+<meta property="og:description" content="Live sports card breaks 7 days a week. Catch us on eBay Live and Fanatics Live.">
+<meta property="og:image" content="assets/breakscenter-icon.jpg">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="assets/breakscenter-icon.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --red: #e31e2b;
+    --red-dim: #a3141e;
+    --black: #0a0505;
+    --card: #ffffff;
+    --muted: #b9adad;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  html,body{
+    min-height:100%;
+    background: var(--black);
+  }
+
+  body{
+    font-family:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    background:
+      radial-gradient(120% 60% at 50% 0%, rgba(227,30,43,0.35) 0%, rgba(227,30,43,0.10) 32%, rgba(0,0,0,0) 60%),
+      radial-gradient(140% 90% at 50% 100%, rgba(60,0,0,0.55) 0%, rgba(0,0,0,0) 55%),
+      #070303;
+    min-height:100vh;
+  }
+
+  .page{
+    width:100%;
+    max-width:460px;
+    padding: 48px 20px 40px;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  /* corner bracket accents, echoing the Breakscenter frame graphic */
+  .page::before,
+  .page::after{
+    content:"";
+    position:fixed;
+    width:34px;
+    height:34px;
+    border: 2px solid rgba(227,30,43,0.55);
+    opacity:0.8;
+    pointer-events:none;
+  }
+  .page::before{
+    top:18px; left:18px;
+    border-right:none;
+    border-bottom:none;
+  }
+  .page::after{
+    bottom:18px; right:18px;
+    border-left:none;
+    border-top:none;
+  }
+
+  .icon-badge{
+    width:76px;
+    height:76px;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow: 0 8px 30px rgba(227,30,43,0.45), 0 0 0 1px rgba(255,255,255,0.06);
+    margin-bottom:22px;
+  }
+  .icon-badge img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+  }
+
+  .wordmark{
+    width:min(78vw, 300px);
+    display:block;
+    mix-blend-mode: screen;
+    margin-bottom:18px;
+  }
+
+  .tagline{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:#f1e3e3;
+    margin-bottom:6px;
+  }
+  .tagline .accent{ color: var(--red); }
+
+  .sub-tagline{
+    font-size:12.5px;
+    color: var(--muted);
+    letter-spacing:0.02em;
+    margin-bottom:14px;
+  }
+  .sub-tagline .accent{ color: var(--red); }
+
+  .live-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background: rgba(227,30,43,0.12);
+    border:1px solid rgba(227,30,43,0.5);
+    padding:7px 14px;
+    border-radius:999px;
+    font-family:'Oswald', sans-serif;
+    font-weight:500;
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:#ffdada;
+    margin-bottom:14px;
+  }
+
+  .dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background: var(--red);
+    box-shadow: 0 0 0 0 rgba(227,30,43,0.6);
+    animation: pulse 1.8s infinite;
+    flex-shrink:0;
+  }
+  @keyframes pulse{
+    0%{ box-shadow: 0 0 0 0 rgba(227,30,43,0.55); }
+    70%{ box-shadow: 0 0 0 8px rgba(227,30,43,0); }
+    100%{ box-shadow: 0 0 0 0 rgba(227,30,43,0); }
+  }
+
+  .handle{
+    color: var(--muted);
+    font-size:14px;
+    letter-spacing:0.02em;
+    margin-bottom:26px;
+  }
+
+  .trust-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color: var(--muted);
+    font-size:11.5px;
+    letter-spacing:0.03em;
+    margin-bottom:36px;
+    text-align:center;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .trust-row span:not(.sep){ white-space:nowrap; }
+  .trust-row .sep{ opacity:0.4; }
+
+  .section-label{
+    align-self:flex-start;
+    font-family:'Oswald', sans-serif;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color: var(--muted);
+    margin: 0 0 12px 4px;
+  }
+
+  .links{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    margin-bottom:34px;
+  }
+
+  .link-card{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    background: var(--card);
+    border-radius:16px;
+    padding:14px 16px;
+    text-decoration:none;
+    color:#111;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .link-card:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba(227,30,43,0.28);
+  }
+  .link-card:active{
+    transform: translateY(0px) scale(0.99);
+  }
+
+  .link-logo{
+    width:52px;
+    height:52px;
+    border-radius:10px;
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#fff;
+    overflow:hidden;
+  }
+  .link-logo img{
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+  }
+  .link-logo.fanatics{
+    background:#111;
+  }
+  .link-logo.fanatics svg{
+    width:30px;
+    height:30px;
+  }
+
+  .link-copy{
+    flex:1;
+    min-width:0;
+  }
+  .link-title{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:16.5px;
+    letter-spacing:0.01em;
+    color:#111;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .link-sub{
+    font-size:12.5px;
+    color:#666;
+    margin-top:2px;
+  }
+
+  .chevron{
+    flex-shrink:0;
+    color:#b7b7b7;
+  }
+
+  .mini-live{
+    display:inline-block;
+    font-size:9.5px;
+    font-weight:700;
+    letter-spacing:0.08em;
+    color:#fff;
+    background: var(--red);
+    padding:2px 6px;
+    border-radius:5px;
+  }
+
+  footer{
+    margin-top:auto;
+    padding-top:10px;
+    text-align:center;
+    color: rgba(255,255,255,0.35);
+    font-size:11.5px;
+    letter-spacing:0.03em;
+  }
+
+  @media (min-width:480px){
+    .page{ padding-top:64px; }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+
+    <div class="icon-badge">
+      <img src="assets/breakscenter-icon.jpg" alt="Breakscenter">
+    </div>
+
+    <img class="wordmark" src="assets/breakscenter-wordmark-crop.jpg" alt="BREAKSCENTER">
+
+    <div class="tagline">Your Home For <span class="accent">Premium</span> NFL Card Breaks</div>
+    <div class="sub-tagline">Focusing on <span class="accent">NFL</span>. Delivering excellence.</div>
+
+    <span class="live-pill"><span class="dot"></span>Live Streams 7 Days a Week</span>
+    <div class="handle">@breakscenter</div>
+
+    <div class="trust-row">
+      <span>Trusted Seller</span><span class="sep">·</span>
+      <span>Fast &amp; Secure Shipping</span><span class="sep">·</span>
+      <span>Quality Breaks</span>
+    </div>
+
+    <div class="section-label">Watch Us Live</div>
+    <div class="links">
+
+      <a class="link-card" href="https://www.ebay.com/ebaylive/sellers/n-9ukq1tqlg" target="_blank" rel="noopener">
+        <div class="link-logo">
+          <img src="assets/ebay-live-logo.jpg" alt="eBay Live">
+        </div>
+        <div class="link-copy">
+          <div class="link-title">Watch on eBay Live <span class="mini-live">LIVE</span></div>
+          <div class="link-sub">@breakscenter</div>
+        </div>
+        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+
+      <a class="link-card" href="https://www.fanatics.live/explore?value=breakscenter" target="_blank" rel="noopener">
+        <div class="link-logo fanatics">
+          <img src="assets/fanatics-icon.svg" alt="Fanatics Live" style="width:30px;height:30px;">
+        </div>
+        <div class="link-copy">
+          <div class="link-title">Watch on Fanatics Live <span class="mini-live">LIVE</span></div>
+          <div class="link-sub">@breakscenter</div>
+        </div>
+        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+
+    </div>
+
+    <footer>© 2026 Breakscenter · Live sports card breaks</footer>
+  </div>
+</body>
+</html>
